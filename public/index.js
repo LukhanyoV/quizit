@@ -11,8 +11,8 @@ const minutes = min * 60000
 const seconds = sec * 1000
 const setTime = hours + minutes + seconds
 
-const startTime = Date.now()
-const futureTime = startTime + setTime
+let startTime = Date.now()
+let futureTime = startTime + setTime
 
 
 const countDownTimer = () => {
@@ -69,9 +69,17 @@ const countDownTimer = () => {
     <div class='colon'>:</div>
     <div>00</div>
     `;
+    clearInterval(timerLoop);
+    
     }
     
 }
 
-const timerLoop = setInterval(countDownTimer);
-countDownTimer()
+// start the timer function
+let timerLoop = setInterval(countDownTimer);
+function startTimer() {
+    startTime = Date.now()
+    futureTime = startTime + setTime
+    timerLoop = setInterval(countDownTimer);
+}
+startTimer() // start at least once

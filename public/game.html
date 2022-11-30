@@ -7,7 +7,6 @@
     <title>Quizit</title>
 
     <link rel="stylesheet"  href="./style.css"/>
-    <script src="./main.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -26,7 +25,7 @@
                 <span class="name">Boizen</p>
             </div>
             <div class="game__container">
-                <p class="questions">10 + 10 = ?</p>
+                <p class="questions"></p>
                 <div class="game__screen">
                     <canvas id='canvas'></canvas>
                 </div>
@@ -36,13 +35,13 @@
                     <p class="details">Mode: <span class="score">Easy</span></p>
                     <p class="details">Player: <span class="name">Boizen</span></p>
                     <p class="details">Score: <span class="score">250</span></p>
-                    <p class="details">Question: <span class="question">10</span></p>
+                    <p class="details">Question: <span class="question_num">10</span></p>
                     <p class="details time__container">Time: <span class="question time"></span></p>
                 </div>
             </div>
             <div class="answer right">
                 <span class="name">Boizen</p>
-            </div>
+                </div>
             <div class="circle">
                 <div class="circle__container">
                     <div class="semi__circle"></div>
@@ -59,7 +58,9 @@
             <h1 class="title">QuiZiT!</h1>
         </footer>
     </main>
-    <script src="./index.js" type="module"></script>
-    
+
+    <script src="./index.js"></script>
+    <script src="./main.js"></script>
+    <script src="./model.js"></script>
 </body>
 </html>
