@@ -226,3 +226,30 @@ footer{
     align-items: center;
     justify-content: center;
 }
+
+.inner__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+input.player{
+    padding: 10px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+button.submit{
+    padding: 10px;
+    width: 100%;
+    margin: 20px 0;
+    color: var(--f-cl);
+    transition: .1s ease;
+}
+
+button.submit:hover{
+    color: var(--t-cl);
+    background-color: var(--p-bg);
+    font-weight: bold;
+}
