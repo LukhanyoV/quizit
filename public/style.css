@@ -47,7 +47,7 @@ header{
     justify-content: space-around;
     height: 80vh;
     width: 100%;
-    /* background-color: var(--t-bg); */
+    background-color: var(--t-bg);
 }
 
 .game__container{
