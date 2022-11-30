@@ -57,6 +57,12 @@
     justify-content: flex-start;
 }
 
+.instruction-paragraph {
+    text-align: center;
+    color: var(--p-cl);
+    
+}
+
 .mode-selection {
     display: flex;
     flex-direction: column;
