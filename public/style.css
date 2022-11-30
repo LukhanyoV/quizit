@@ -27,8 +27,8 @@
     width: 100vw;
     flex-direction: column;
     padding: 20px;
-    background: rgb(0,0,0);
-    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(254,206,122,1) 55%, var(--t-bg) 100%);
+    background: var(--p-bg);
+    overflow: hidden;
 }
 
 header{
@@ -47,33 +47,28 @@ header{
 
 .container{
     display: flex;
-    position: relative;
     align-items: center;
     justify-content: space-evenly;
     height: 80vh;
     width: 100%;
-    background-color: var(--t-bg);
+    border-radius: 5px;
+    overflow: hidden;
 
-}
-
-.game__container{
-    /* width: 90vh; */
-    /* height: 60vh; */
 }
 
 .details__container{
-    position: absolute;
+    position: fixed;
     right: 0;
     align-self: flex-start;
     top: 0;
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color: var(--f-cl);
+    background-color: var(--p-bg);
+    margin: 30px;
 }
 
 .details{
-    font-weight: bold;
     display: flex;
     align-items: center;
     width: 170px;
@@ -83,8 +78,8 @@ header{
     justify-content: space-between;
 }
 
-.name, .score, .question_num, .time{
-    color: var(--p-bg)
+.name, .score, .question_num, .time, .player{
+    color: var(--s-cl)
 }
 
 .questions{
@@ -93,6 +88,8 @@ header{
     font-size: 50px;
     width: 100%;
     text-align: center;
+    background-color: var(--p-bg);
+    border-radius: 5px 5px 0px 0px ;
 }
 
 .answer{
@@ -102,20 +99,22 @@ header{
     color: var(--s-cl);
     border: 1px solid var(--s-cl);
     padding: 10px 15px;
-    background-color: red;
-    width: 200px;
+    width: 80px;
     height: 80px;
+    border-radius: 50%;
 }
 
-.answer > {
-    font-size: 25px;
-}
+.name{
+    font-size: 50px;
 
+}
 .game__screen{
-    border: 1px solid var(--s-cl);
     width: 100%;
     height: 100%;
+    background-color: var(--p-bg);
+    border-radius: 0px 0px 5px 5px ;
 }
+
 
 footer{
     flex: 1;
@@ -163,9 +162,11 @@ footer{
 }
 
 .circle{
-    position: absolute;
+    /* position: fixed; */
+    /* right: 0; */
     bottom: 0;
-    right: 0;
+    z-index: 9999;
+    margin: 0 30px;
 }
 .outermost__circle{
     background-color: var(--t-bg);
