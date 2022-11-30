@@ -4,15 +4,15 @@ const questionElement = $.querySelector(".questions");
 const answerRight = $.querySelector(".right");
 const answerLeft = $.querySelector(".left");
 
-// get the question data from API
-const URL = "http://localhost:5000/api/generate";
 
 // get the data from the API
-(async () => {
+const randomQuestion = async () => {
+    // get the question data from API
+    const URL = "http://localhost:5000/api/generate";
+
     const results = await axios.get(URL);
     const questionObj = results.data.data;
     console.log("ho ho ho", results.data);
-    
 
     // put the question in the html
     questionElement.innerHTML = `${questionObj.question} = ?`;
@@ -24,4 +24,7 @@ const URL = "http://localhost:5000/api/generate";
         answerRight.innerHTML = `<span class="name">${questionObj.incorrect}</span>`;
         answerLeft.innerHTML = `<span class="name">${questionObj.correct}</span>`;
     }
-})()
+}
+
+// create random question on start
+randomQuestion()
