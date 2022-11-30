@@ -12,107 +12,95 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet"  href="./style.css"/>
 
-    <!-- inline css bellow -->
-    <style>
-        h1 {
-            text-align: center;
-        }
-
-        /* <!-- centering a bootstrap table bellow --> */
-        .table {
-            margin: auto;
-            width: 35% !important; 
-        }
-        .badge-success {
-            background-color: rgba(142, 192, 124, 0.61);
-        }
-        .badge-warning {
-            background-color: rgba(243, 234, 149, 0.589);
-        }
-        .badge-danger {
-            background-color: rgba(250, 109, 109, 0.562);
-        }
-        .labels {
-            display: flex;
-            justify-content: space-around;
-        }
-    </style>
 </head>
 <body>
-    <h1>Score Board</h1>
-    <br><br>
-    <table class="table table-hover align-middle mb-0 bg-white">
-        <thead class="bg-light">
-            <tr>
-                <th>Player</th>
-                <th>Mode</th>
-                <th>Score</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <div class="ms-3">
-                        <p class="fw-bold mb-1">John Doe</p>
-                        <p class="text-muted mb-0">072 822 4626</p>
+
+    <main class="main__container">
+        <header class="header">
+            <h1 class="title">QuiZiT!</h1>
+        </header>
+        <div class="container">
+            <br><br>
+            <div class="results">
+                <h1>Score Board</h1>
+                <table class="table table-hover align-middle mb-0 bg-white">
+                    <thead class="bg-light">
+                        <tr>
+                            <th>Player</th>
+                            <th>Mode</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">John Doe</p>
+                                    <p class="text-muted mb-0">072 822 4626</p>
+                                </div>
+                            </td>
+                            <td>Easy</td>
+                            <td >
+                                <span class="badge badge-success rounded-pill d-inline">20</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">Lukhanyo Vakele</p>
+                                    <p class="text-muted mb-0">082 832 9946</p>
+                                </div>
+                            </td>
+                            <td>Hard</td>
+                            <td>
+                                <span class="badge badge-success rounded-pill d-inline">25</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">Boizen n Buck</p>
+                                    <p class="text-muted mb-0">082 932 8916</p>
+                                </div>
+                            </td>
+                            <td>Hard</td>
+                            <td>
+                                <span class="badge badge-warning rounded-pill d-inline">10</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">Heizen n Berg</p>
+                                    <p class="text-muted mb-0">062 932 8916</p>
+                                </div>
+                            </td>
+                            <td>Hard</td>
+                            <td>
+                                <span class="badge badge-danger rounded-pill d-inline">9</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br><br>
+                <div class="labels">
+                    <div class="alert alert-success" role="alert">
+                        The sky is not even the limit!
                     </div>
-                </td>
-                <td>Easy</td>
-                <td >
-                    <span class="badge badge-success rounded-pill d-inline">20</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="ms-3">
-                        <p class="fw-bold mb-1">Lukhanyo Vakele</p>
-                        <p class="text-muted mb-0">082 832 9946</p>
+                    <div class="alert alert-warning" role="alert">
+                        Pay more attention to details and parctice more!
                     </div>
-                </td>
-                <td>Hard</td>
-                <td>
-                    <span class="badge badge-success rounded-pill d-inline">25</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="ms-3">
-                        <p class="fw-bold mb-1">Boizen n Buck</p>
-                        <p class="text-muted mb-0">082 932 8916</p>
+                    <div class="alert alert-danger" role="alert">
+                        Please focus on you <strong>Mode</strong>!
                     </div>
-                </td>
-                <td>Hard</td>
-                <td>
-                    <span class="badge badge-warning rounded-pill d-inline">10</span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="ms-3">
-                        <p class="fw-bold mb-1">Heizen n Berg</p>
-                        <p class="text-muted mb-0">062 932 8916</p>
-                    </div>
-                </td>
-                <td>Hard</td>
-                <td>
-                    <span class="badge badge-danger rounded-pill d-inline">9</span>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <br><br>
-    <div class="labels">
-        <div class="alert alert-success" role="alert">
-            The sky is not even the limit!
+                </div>
+            </div>
         </div>
-        <div class="alert alert-warning" role="alert">
-            Pay more attention to details and parctice more!
-          </div>
-        <div class="alert alert-danger" role="alert">
-            Please focus on you <strong>Mode</strong>!
-        </div>
-    </div>
-    
+        <footer class="footer">
+            <h1 class="title">QuiZiT!</h1>
+        </footer>
+    </main>    
 </body>
 </html>
