@@ -40,10 +40,28 @@ header{
 }
 .title{
     font-size: 30px;
-    color: var(--p-cl);
+    color: var(--s-cl);
     font-weight: bold;
 }
 
+.footer__title{
+    font-size: 20px;
+    color: var(--t-cl);
+    font-weight: bold;
+}
+
+.footer >  p{
+    color: var(--t-bg);
+    font-weight: bold;
+}
+
+.title span:nth-child(1){
+    color: var(--t-cl);
+}
+
+.title span:nth-child(2){
+    color: var(--f-cl);
+}
 
 .container{
     display: flex;
@@ -239,6 +257,11 @@ input.player{
     padding: 10px;
     width: 100%;
     margin-top: 20px;
+    border-radius: 5px;
+}
+
+input.player:focus{
+    outline: 2px solid var(--f-cl);
 }
 
 button.submit{
@@ -247,11 +270,12 @@ button.submit{
     margin: 20px 0;
     color: var(--f-cl);
     transition: .1s ease;
+    border-radius: 5px;
 }
 
 button.submit:hover{
-    color: var(--t-cl);
-    background-color: var(--p-bg);
+    color: var(--p-bg);
+    background-color: var(--s-cl);
     font-weight: bold;
 }
 
