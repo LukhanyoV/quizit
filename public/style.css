@@ -14,6 +14,9 @@
     --p-bg: #101820FF;
     --s-bg: #24201D;
     --t-bg: #313131;
+    --easy: #008000;
+    --medium: #ffff00;
+    --hard: #ff0000;
 }
 .main__container{
     background-color: var(--s-bg);
@@ -37,9 +40,10 @@ header{
 }
 .title{
     font-size: 30px;
-    color: white;
+    color: var(--p-cl);
     font-weight: bold;
 }
+
 
 .container{
     display: flex;
