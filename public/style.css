@@ -253,3 +253,30 @@ button.submit:hover{
     background-color: var(--p-bg);
     font-weight: bold;
 }
+
+/* the score board css */
+h1 {
+    text-align: center;
+}
+
+/* <!-- centering a bootstrap table bellow --> */
+.table {
+    margin: auto;
+    width: 35% !important; 
+}
+.badge-success {
+    background-color: rgba(142, 192, 124, 0.61);
+}
+.badge-warning {
+    background-color: rgba(243, 234, 149, 0.589);
+}
+.badge-danger {
+    background-color: rgba(250, 109, 109, 0.562);
+}
+.labels {
+    display: flex;
+}
+
+.results {
+    width: 100px;
+}
