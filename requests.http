@@ -1,1 +1,26 @@
+### generate a random question
 GET http://localhost:5000/api/generate
+
+### get the game modes
+GET http://localhost:5000/api/modes
+
+### create or get user
+POST http://localhost:5000/api/user
+Content-Type: application/json
+
+{
+    "username": "yonela"
+}
+
+### save user score to the leaderboard
+POST http://localhost:5000/api/save
+Content-Type: application/json
+
+{
+    "playerId": 1,
+    "modeId": 3,
+    "score": 30
+}
+
+### get the leaderboard
+GET http://localhost:5000/api/leaderboard

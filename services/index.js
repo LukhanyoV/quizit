@@ -1,4 +1,4 @@
-module.exports = () => {
+module.exports = (db) => {
 
     // generate a random whole number between min and max
     const randrange = (min, max) => {
@@ -42,7 +42,54 @@ module.exports = () => {
         }
     }
 
+    // find a user by the username
+    const findUser = async username => {
+        return await db.oneOrNone("SELECT * FROM players WHERE username = $1", [username])
+    }
+
+    // create a new user 
+    const createUser = async username => {
+        await db.none("INSERT INTO players (username) VALUES ($1)", [username]);
+    }
+
+    // create or get the user
+    const user = async username => {
+        // try and find the user
+        const user = await findUser(username);
+        if(user) return user; // return the user if found
+        // create the user
+        await createUser(username);
+        return await findUser(username);
+    }
+
+    // get the game modes
+    const gameModes = async () => {
+        return await db.manyOrNone("SELECT * FROM modes");
+    }
+
+    // save game state
+    // if the user and the mode exists update
+    const saveState = async ({playerId, modeId, score}) => {
+        // check to see if state exists first
+        const check = await db.oneOrNone("SELECT * FROM leaderboard WHERE player_id = $1 AND mode_id = $2", [playerId, modeId])
+        if(check) {
+            // then update
+            await db.none("UPDATE leaderboard SET score = $1 WHERE id = $2", [score, check.id])
+        } else {
+            await db.none("INSERT INTO leaderboard (player_id, mode_id, score) VALUES ($1, $2, $3)", [playerId, modeId, score])
+        }
+    }
+
+    // get the leaderboards
+    const leaderboard = async () => {
+        return await db.manyOrNone("SELECT username, mode, score FROM leaderboard AS l JOIN players AS p ON l.player_id = p.id JOIN modes AS m ON l.mode_id = m.id")
+    }
+
     return {
-        generateQuestion
+        generateQuestion,
+        user,
+        gameModes,
+        saveState,
+        leaderboard
     }
 }
