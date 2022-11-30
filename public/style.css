@@ -14,6 +14,9 @@
     --p-bg: #101820FF;
     --s-bg: #24201D;
     --t-bg: #313131;
+    --easy: #008000;
+    --medium: #ffff00;
+    --hard: #ff0000;
 }
 .main__container{
     background-color: var(--s-bg);
@@ -37,17 +40,80 @@ header{
 }
 .title{
     font-size: 30px;
-    color: white;
+    color: var(--p-cl);
+    font-weight: bold;
+}
+.mode-tittle {
+    font-size: 30px;
+    color: var(--p-cl);
+    font-weight: bold;
+    justify-content: flex-start;
+}
+
+.mode-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;  
+}
+
+button {
+    border: 1px solid var(--f-cl);
+    padding: 13px 20px;
+    width: 200px;
+    margin-top: 15px;
+    transition: .1s ease;
+    cursor: pointer;
+}
+
+.easy{
+    border: 1px solid var(--easy);
+    color: var(--easy);
+}
+
+.medium {
+    border: 1px solid var(--medium);
+    color: var(--medium);
+}
+
+.hard {
+    border: 1px solid var(--hard);
+    color: var(--hard);
+}
+
+
+.easy:hover{
+    border: 1px solid var(--easy);
+    background-color: var(--easy);
+    color: var(--p-cl);
     font-weight: bold;
 }
 
+.medium:hover{
+    border: 1px solid var(--medium);
+    background-color: var(--medium);
+    color: var(--p-bg);
+    font-weight: bold;
+}
+
+.hard:hover{
+    border: 1px solid var(--hard);
+    background-color: var(--hard);
+    color: var(--p-bg);
+    font-weight: bold;
+}
+
+.mode-fill {
+    height: 100%;
+}
 .container{
     display: flex;
     align-items: center;
     justify-content: space-around;
     height: 80vh;
     width: 100%;
-    /* background-color: var(--t-bg); */
+    background-color: var(--t-bg);
 }
 
 .game__container{
