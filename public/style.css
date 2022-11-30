@@ -258,12 +258,13 @@ button.submit:hover{
 /* the score board css */
 h1 {
     text-align: center;
+    color: var(--p-cl);
 }
 
 /* <!-- centering a bootstrap table bellow --> */
 .table {
     margin: auto;
-    width: 35% !important; 
+    width: 45% !important; 
 }
 .badge-success {
     background-color: rgba(142, 192, 124, 0.61);
@@ -276,8 +277,13 @@ h1 {
 }
 .labels {
     display: flex;
+    justify-content: space-around;
 }
 
 .results {
-    width: 100px;
+    display: flex;
+    flex-direction: column;
+    /* background-color: #008000; */
+    width: 75%;
+    height: 90%;
 }
