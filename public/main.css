@@ -12,6 +12,55 @@
     --hard: #ff0000;
 }
 
+
+.mode-fill {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.mode-title {
+    font-size: 30px;
+    color: var(--p-cl);
+}
+
+.instruction-paragraph {
+    text-align: center;
+    color: var(--p-cl);
+    
+}
+
+.mode-selection {
+    display: flex;
+    /* flex-direction: column; */
+    /* background-color: red; */
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+button.modes {
+    border: 1px solid var(--f-cl);
+    padding: 13px 20px;
+    min-width: 200px;
+    max-width: 300px;
+    width: 100%;
+    margin-top: 15px;
+    transition: .1s ease;
+    cursor: pointer;
+}
+.modes{
+    border-radius: 5px;
+}
+
+.easy{
+    border: 1px solid var(--easy);
+    color: var(--easy);
+}
+
 .medium {
     border: 1px solid var(--medium);
     color: var(--medium);
@@ -40,47 +89,6 @@
 .hard:hover{
     border: 1px solid var(--hard);
     background-color: var(--hard);
-    color: var(--p-bg);
-    font-weight: bold;
-}
-.mode-fill {
-    height: 100%;
-    width: 100%;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-}
-.mode-tittle {
-    font-size: 30px;
     color: var(--p-cl);
     font-weight: bold;
-    justify-content: flex-start;
-}
-
-.instruction-paragraph {
-    text-align: center;
-    color: var(--p-cl);
-    
-}
-
-.mode-selection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;  
-}
-
-button {
-    border: 1px solid var(--f-cl);
-    padding: 13px 20px;
-    width: 200px;
-    margin-top: 15px;
-    transition: .1s ease;
-    cursor: pointer;
-}
-
-.easy{
-    border: 1px solid var(--easy);
-    color: var(--easy);
 }
