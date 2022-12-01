@@ -1,3 +1,55 @@
+// GAME STATE
+var GAME_MODE = 'Easy';
+var PLAYER_NAME = 'Yonela'
+var PLAYER_SCORE = 0;
+var QUESTIONS_REMAINING = 5;
+var CAN_PLAY = true;
+var GAME_OVER = false;
+
+var CORRECT_ANSWER;
+
+// update the board
+const updateBoard = () => {
+    document.querySelector("#mode").innerHTML = GAME_MODE;
+    document.querySelector("#playername").innerHTML = PLAYER_NAME;
+    document.querySelector("#playerscore").innerHTML = PLAYER_SCORE;
+    document.querySelector("#questionsremaining").innerHTML = QUESTIONS_REMAINING;
+}
+updateBoard()
+
+// answer question function 
+const answerQuestion = answer => {
+    // dont answer if you don't have questions remaining
+    if(QUESTIONS_REMAINING <= 0) {
+        // game over 
+        GAME_OVER = true
+    }
+    
+    CAN_PLAY = false;
+    
+    if(answer === CORRECT_ANSWER){
+        // add five points to score
+        PLAYER_SCORE += 5;
+    }
+
+    QUESTIONS_REMAINING--;
+    updateBoard()
+
+    if(QUESTIONS_REMAINING <= 0) {
+        // game over 
+        GAME_OVER = true
+    } else {
+
+        // enable user play
+        if(QUESTIONS_REMAINING <= 0) return
+        setTimeout(() => {
+            nextQuestion();
+            CAN_PLAY = true;
+        }, 2000);
+
+    }
+}
+
 // make references to the DOM elements
 const $ = document;
 const questionElement = $.querySelector(".questions");
@@ -5,32 +57,34 @@ const answerRight = $.querySelector(".right");
 const answerLeft = $.querySelector(".left");
 // animation references
 const animButton = $.querySelector(".anim__button")
-const svgContainer = $.querySelector('.svg')
+const svgContainer = $.querySelector('.svg');
+
 // get the data from the API
 const randomQuestion = () => {
     (async () => {
         // get the question data from API
-        const URL = "http://localhost:5000/api/generate";
+        const URL = "http://theakatsuki.xyz/api/generate";
         
         const results = await axios.get(URL);
         const questionObj = results.data.data;
-                
+
+        
         // put the question in the html
         questionElement.innerHTML = `${questionObj.question} = ?`;
         const randomNum = Math.floor(Math.random() * 10); // will use this for deciding where to show option
         if(randomNum % 2 === 0){
+            // set correct answer
+            CORRECT_ANSWER = "left";
             answerRight.innerHTML = `<span class="name">${questionObj.correct}</span>`;
             answerLeft.innerHTML = `<span class="name">${questionObj.incorrect}</span>`;
         } else {
+            // set correct answer
+            CORRECT_ANSWER = "right";
             answerRight.innerHTML = `<span class="name">${questionObj.incorrect}</span>`;
             answerLeft.innerHTML = `<span class="name">${questionObj.correct}</span>`;
         }
     })()
 }
-
-// create random question on start
-randomQuestion()
-
 
 // start the timer and generate new question
 function nextQuestion () {

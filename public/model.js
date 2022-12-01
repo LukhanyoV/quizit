@@ -1,3 +1,19 @@
+Notification.requestPermission();
+var notify = true
+var startgame = true
+
+function message(msg) {
+    if(notify){
+        var notification = new Notification("Hi there!", {body: msg});
+
+        notify = false
+        setTimeout(function() {
+            notification.close()
+        }, 3000);
+    }
+}
+
+
 // More API functions here:
 // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/pose
 
@@ -25,16 +41,17 @@ async function init() {
     const canvas = document.getElementById('canvas');
     canvas.width = 300; canvas.height = 200;
     ctx = canvas.getContext('2d');
-    // labelContainer = document.getElementById('label-container');
-    // for (let i = 0; i < maxPredictions; i++) { // and class labels
-    //     labelContainer.appendChild(document.createElement('div'));
-    // }
 }
 
 async function loop(timestamp) {
     webcam.update(); // update the webcam frame
     await predict();
     window.requestAnimationFrame(loop);
+
+    // create random question on start
+    if(startgame) nextQuestion()
+    startgame = false
+
 }
 
 async function predict() {
@@ -43,25 +60,37 @@ async function predict() {
     const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
     // Prediction 2: run input through teachable machine classification model
     const prediction = await model.predict(posenetOutput);
+    
+    if(CAN_PLAY){
 
-    // for (let i = 0; i < maxPredictions; i++) {
-    //     const classPrediction =
-    //         prediction[i].className + ': ' + prediction[i].probability.toFixed(2);
-    //     labelContainer.childNodes[i].innerHTML = classPrediction;
-    // }
+    // GAME LOGIC FOR CHOOSING
+    const leftHand = prediction.find(item => item.className === 'Left Hand');
+    const rightHand = prediction.find(item => item.className === 'Right Hand');
+    const headRight = prediction.find(item => item.className === 'Head Right');
+    const headLeft = prediction.find(item => item.className === 'Head Left');
 
-    // finally draw the poses
-    drawPose(pose);
+        // TODO send answer
+        if (leftHand.probability > 0.96) {
+            answerQuestion("left")
+        } else if (rightHand.probability > 0.96) {
+            answerQuestion("right")
+        }
+        // GAME LOGIC FOR CHOOSING
+        
+        // finally draw the poses
+        
+    }
+    
+    if(GAME_OVER){
+        // game over 
+        animItem.play()
+    }
+    
+    drawPose();
 }
 
-function drawPose(pose) {
+function drawPose() {
     ctx.drawImage(webcam.canvas, 0, 0);
-    // draw the keypoints and skeleton
-    if (pose) {
-        const minPartConfidence = 0.5;
-        tmPose.drawKeypoints(pose.keypoints, minPartConfidence, ctx);
-        tmPose.drawSkeleton(pose.keypoints, minPartConfidence, ctx);
-    }
 }
 
 // initialise game

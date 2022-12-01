@@ -70,7 +70,6 @@ const countDownTimer = () => {
     <div>00</div>
     `;
     clearInterval(timerLoop);
-    
     }
     
 }
@@ -82,4 +81,3 @@ function startTimer() {
     futureTime = startTime + setTime
     timerLoop = setInterval(countDownTimer);
 }
-startTimer() // start at least once
