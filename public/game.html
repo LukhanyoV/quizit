@@ -34,9 +34,6 @@
             </div>
             <div class="details__container">
                 <div>
-                    <button class="submit">One</button>
-                </div>
-                <div>
                     <p class="details">Mode: <span class="score" id="mode">Easy</span></p>
                     <p class="details">Player: <span class="player" id="playername">Boizen</span></p>
                     <p class="details">Score: <span class="score" id="playerscore">250</span></p>
@@ -66,10 +63,22 @@
     </main>
     <div class="modal">
         <div class="modal__container">
-            <div class="svg hide" id="svg">
-                <h1 class="success">Correct</h1>
-                <p>Points: 250</p>
-                <button class="anim__button">Animation</button>
+            <header class="header">
+                <h1 class="title">X<span>QuiZ</span><span>iT</span>!</h1>
+            </header>
+            <div class="modal__details">
+                <h1 class="modal__title">Congratulations!</h1>
+                <div class="modal__center">
+                    <p class="details">Mode: <span class="score modal__detail"> Easy</span></p>
+                    <p class="details">Player: <span class="player modal__detail"> Boizen</span></p>
+                    <p class="details">Score: <span class="score modal__detail"> 250</span></p>
+                    <p class="details">Question: <span class="question_num modal__detail"> 10</span></p>
+                </div>
+                <div class="svg hide" id="svg"></div>
+                <button class="anim__button">Next Challenge</button>
+                <a class="score__link">
+                    Scoreboard
+                </a>
             </div>
         </div>
     </div>
