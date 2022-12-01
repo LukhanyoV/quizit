@@ -1,3 +1,7 @@
+###
+### LOCAL
+###
+
 ### generate a random question
 GET http://localhost:5000/api/generate
 
@@ -24,3 +28,34 @@ Content-Type: application/json
 
 ### get the leaderboard
 GET http://localhost:5000/api/leaderboard
+
+###
+### ONLINE http://theakatsuki.xyz/
+###
+
+### generate a random question
+GET http://theakatsuki.xyz/api/generate
+
+### get the game modes
+GET http://theakatsuki.xyz/api/modes
+
+### create or get user
+POST http://theakatsuki.xyz/api/user
+Content-Type: application/json
+
+{
+    "username": "yonela"
+}
+
+### save user score to the leaderboard
+POST http://theakatsuki.xyz/api/save
+Content-Type: application/json
+
+{
+    "playerId": 1,
+    "modeId": 3,
+    "score": 30
+}
+
+### get the leaderboard
+GET http://theakatsuki.xyz/api/leaderboard
