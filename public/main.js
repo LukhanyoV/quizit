@@ -87,7 +87,7 @@ const modalContainer = $.querySelector('.modal')
 const randomQuestion = () => {
     (async () => {
         // get the question data from API
-        const URL = "http://theakatsuki.xyz/api/generate";
+        const URL = "https://theakatsuki.xyz/api/generate";
         
         const results = await axios.get(URL);
         const questionObj = results.data.data;

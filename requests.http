@@ -38,14 +38,14 @@ Content-Type: application/json
 GET http://localhost:5000/api/leaderboard
 
 ###
-### ONLINE http://theakatsuki.xyz/
+### ONLINE https://theakatsuki.xyz/
 ###
 
 ### generate a random question
-GET http://theakatsuki.xyz/api/generate
+GET https://theakatsuki.xyz/api/generate
 
 ### generate on post
-POST http://theakatsuki.xyz/api/generate
+POST https://theakatsuki.xyz/api/generate
 Content-Type: application/json
 
 {
@@ -53,10 +53,10 @@ Content-Type: application/json
 }
 
 ### get the game modes
-GET http://theakatsuki.xyz/api/modes
+GET https://theakatsuki.xyz/api/modes
 
 ### create or get user
-POST http://theakatsuki.xyz/api/user
+POST https://theakatsuki.xyz/api/user
 Content-Type: application/json
 
 {
@@ -64,7 +64,7 @@ Content-Type: application/json
 }
 
 ### save user score to the leaderboard
-POST http://theakatsuki.xyz/api/save
+POST https://theakatsuki.xyz/api/save
 Content-Type: application/json
 
 {
@@ -74,4 +74,4 @@ Content-Type: application/json
 }
 
 ### get the leaderboard
-GET http://theakatsuki.xyz/api/leaderboard
+GET https://theakatsuki.xyz/api/leaderboard
