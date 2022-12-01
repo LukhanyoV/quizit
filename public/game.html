@@ -27,14 +27,15 @@
                 <span class="name">0</p>
             </div>
             <div class="game__container">
+                <p class="questions"></p>
                 <div class="game__screen">
                     <canvas id='canvas'></canvas>
                 </div>
-                <p class="questions"></p>
+                <button class="anim__button" id="startGame">Start Game</button>
             </div>
             <div class="details__container">
                 <div>
-                    <p class="details">Mode: <span class="score" id="mode">Easy</span></p>
+                    <p class="details">Mode: <span class="score" id="gamemode">Easy</span></p>
                     <p class="details">Player: <span class="player" id="playername">Boizen</span></p>
                     <p class="details">Score: <span class="score" id="playerscore">250</span></p>
                     <p class="details">Question: <span class="question_num" id="questionsremaining">10</span></p>
@@ -70,9 +71,9 @@
                 <h1 class="modal__title">Congratulations!</h1>
                 <div class="svg" id="svg">
                 <div class="modal__center">
-                    <p class="details">Mode: <span class="score modal__detail"> Easy</span></p>
-                    <p class="details">Player: <span class="player modal__detail"> Boizen</span></p>
-                    <p class="details">Score: <span class="score modal__detail"> 250</span></p>
+                    <p class="details">Mode: <span class="score modal__mode modal__detail"></span></p>
+                    <p class="details">Player: <span class="player modal__player modal__detail"></span></p>
+                    <p class="details">Score: <span class="score modal__score modal__detail"></span></p>
                 </div>
 
                 </div>

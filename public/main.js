@@ -1,18 +1,22 @@
 // GAME STATE
-var GAME_MODE = localStorage.getItem("playerName");
-var PLAYER_NAME = 'Yonela'
+var GAME_MODE = localStorage.getItem("gameMode");
+var PLAYER_NAME = localStorage.getItem("playerName")
 var PLAYER_SCORE = 0;
-var QUESTIONS_REMAINING = 5;
+var QUESTIONS_REMAINING = 10;
 var CAN_PLAY = true;
 var GAME_OVER = false;
+var START_GAME = true;
 
 var CORRECT_ANSWER;
 
 // update the board
 const updateBoard = () => {
-    document.querySelector("#mode").innerHTML = GAME_MODE;
+    document.querySelector("#gamemode").innerHTML = GAME_MODE;
+    document.querySelector(".modal__mode").innerHTML = GAME_MODE;
     document.querySelector("#playername").innerHTML = PLAYER_NAME;
+    document.querySelector(".modal__player").innerHTML = PLAYER_NAME;
     document.querySelector("#playerscore").innerHTML = PLAYER_SCORE;
+    document.querySelector(".modal__score").innerHTML = PLAYER_SCORE;
     document.querySelector("#questionsremaining").innerHTML = QUESTIONS_REMAINING;
 }
 updateBoard()
@@ -24,19 +28,24 @@ const answerQuestion = answer => {
 
     // dont answer if you don't have questions remaining
     if(QUESTIONS_REMAINING <= 0) {
-
+        modalContainer.classList.remove('hide')
         // game over 
         GAME_OVER = true
     }
     
     CAN_PLAY = false;
     
+    // when the answer is correct
     if(answer === CORRECT_ANSWER){
         // add five points to score
         PLAYER_SCORE += 5;
-        answerRight.classList.add("success")
-    } else {
-        answerRight.classList.add("danger")
+        answer === "right" ? answerRight.classList.add("success") : answerLeft.classList.add("success");
+    } 
+    // when the answer is incorrect
+    else {
+        // punish for incorrect
+        // PLAYER_SCORE -= 1
+        answer === "right" ? answerRight.classList.add("danger") : answerLeft.classList.add("danger");
     }
 
     QUESTIONS_REMAINING--;
@@ -53,6 +62,9 @@ const answerQuestion = answer => {
         setTimeout(() => {
             answerRight.classList.remove("success");
             answerRight.classList.remove("danger");
+
+            answerLeft.classList.remove("success");
+            answerLeft.classList.remove("danger");
 
             nextQuestion();
             CAN_PLAY = true;
@@ -125,3 +137,10 @@ animButton.addEventListener('click', () => {
 //     console.log("I am hidden!!!")
 //     svgContainer.classList.add("hide")
 // })
+
+
+document.querySelector("#startGame").addEventListener("click", () => {
+    // create random question on start
+    if(START_GAME) nextQuestion()
+    START_GAME = false
+})

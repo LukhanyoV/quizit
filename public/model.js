@@ -1,19 +1,3 @@
-Notification.requestPermission();
-var notify = true
-var startgame = true
-
-function message(msg) {
-    if(notify){
-        var notification = new Notification("Hi there!", {body: msg});
-
-        notify = false
-        setTimeout(function() {
-            notification.close()
-        }, 3000);
-    }
-}
-
-
 // More API functions here:
 // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/pose
 
@@ -49,8 +33,8 @@ async function loop(timestamp) {
     window.requestAnimationFrame(loop);
 
     // create random question on start
-    if(startgame) nextQuestion()
-    startgame = false
+    // if(startgame) nextQuestion()
+    // startgame = false
 
 }
 
@@ -61,7 +45,7 @@ async function predict() {
     // Prediction 2: run input through teachable machine classification model
     const prediction = await model.predict(posenetOutput);
     
-    if(CAN_PLAY){
+    if(CAN_PLAY && !START_GAME){
 
     // GAME LOGIC FOR CHOOSING
     const leftHand = prediction.find(item => item.className === 'Left Hand');
