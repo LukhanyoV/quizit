@@ -3,8 +3,9 @@ const $ = document;
 const questionElement = $.querySelector(".questions");
 const answerRight = $.querySelector(".right");
 const answerLeft = $.querySelector(".left");
-
-
+// animation references
+const animButton = $.querySelector(".anim__button")
+const svgContainer = $.querySelector('.svg')
 // get the data from the API
 const randomQuestion = () => {
     (async () => {
@@ -36,3 +37,24 @@ function nextQuestion () {
     randomQuestion()
     startTimer()
 }
+
+
+// confetti
+const animItem = bodymovin.loadAnimation({
+    wrapper: svgContainer,
+    animType: 'svg',
+    loop: false,
+    autoplay: false,
+    path: 'https://assets8.lottiefiles.com/packages/lf20_rovf9gzu.json'
+})
+
+// trigger
+animButton.addEventListener('click', () => {
+    console.log("I was clicked!!!")
+    animItem.play()
+})
+
+animItem.addEventListener('complete', () => {
+    console.log("I am hidden!!!")
+    svgContainer.classList.add("hide")
+})

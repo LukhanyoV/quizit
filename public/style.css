@@ -311,3 +311,60 @@ h1 {
     width: 75%;
     height: 90%;
 }
+
+/* Animation */
+
+.modal{
+    background-color: rgba(0, 0, 0, 0.616);
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    color: white;
+    position: fixed;
+    z-index: 8888;
+    top: 0;
+    width: 100vw;
+    bottom: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal__container{
+    position: relative;
+    height: 60%;
+    width: 60vw;
+    background-color: var(--s-bg);
+    margin: 0 auto;
+    padding: 2em;
+}
+
+button.anim__button{
+    margin-top: 2em;
+    border: none;
+    padding: 1em;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    outline: 0;
+    cursor: pointer;
+    z-index: 9999;
+}
+.anim__button:hover{
+    background: #242424;
+}
+
+.anim__button:active {
+    background-color: orange;
+}
+
+.svg{
+    width: 200px;
+    /* position: absolute; */
+    /* pointer-events: none */
+}
+
+.hide{
+    
+}
