@@ -18,6 +18,7 @@
     --medium: #ffff00;
     --hard: #ff0000;
     --success-cl: #53D05C;
+    --fail-cl: #ff6347;
 }
 .main__container{
     background-color: var(--s-bg);
@@ -412,4 +413,12 @@ a.score__link:hover{
 span.modal__detail{
     color: var(--success-cl);
     margin-left: 5px;
+}
+
+.success{
+    color: var(--success-cl);
+}
+
+.danger{
+    color : var(--fail-cl);
 }
