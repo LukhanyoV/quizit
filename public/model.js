@@ -78,15 +78,15 @@ async function predict() {
         // GAME LOGIC FOR CHOOSING
         
         // finally draw the poses
+        drawPose();
         
     }
     
     if(GAME_OVER){
         // game over 
-        animItem.play()
+        
     }
     
-    drawPose();
 }
 
 function drawPose() {

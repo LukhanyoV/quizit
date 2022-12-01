@@ -415,10 +415,12 @@ span.modal__detail{
     margin-left: 5px;
 }
 
-.success{
+.success, .name{
+    border-color: var(--success-cl);
     color: var(--success-cl);
 }
 
-.danger{
+.danger, .name{
+    border-color: var(--fail-cl);
     color : var(--fail-cl);
 }

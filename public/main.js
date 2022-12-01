@@ -1,5 +1,5 @@
 // GAME STATE
-var GAME_MODE = 'Easy';
+var GAME_MODE = localStorage.getItem("playerName");
 var PLAYER_NAME = 'Yonela'
 var PLAYER_SCORE = 0;
 var QUESTIONS_REMAINING = 5;
@@ -19,8 +19,12 @@ updateBoard()
 
 // answer question function 
 const answerQuestion = answer => {
+    console.log("CORRECT", CORRECT_ANSWER);
+    console.log("ANSWER", answer);
+
     // dont answer if you don't have questions remaining
     if(QUESTIONS_REMAINING <= 0) {
+
         // game over 
         GAME_OVER = true
     }
@@ -30,6 +34,9 @@ const answerQuestion = answer => {
     if(answer === CORRECT_ANSWER){
         // add five points to score
         PLAYER_SCORE += 5;
+        answerRight.classList.add("success")
+    } else {
+        answerRight.classList.add("danger")
     }
 
     QUESTIONS_REMAINING--;
@@ -37,12 +44,16 @@ const answerQuestion = answer => {
 
     if(QUESTIONS_REMAINING <= 0) {
         // game over 
+        modalContainer.classList.remove('hide')
         GAME_OVER = true
     } else {
 
         // enable user play
         if(QUESTIONS_REMAINING <= 0) return
         setTimeout(() => {
+            answerRight.classList.remove("success");
+            answerRight.classList.remove("danger");
+
             nextQuestion();
             CAN_PLAY = true;
         }, 2000);
@@ -58,6 +69,7 @@ const answerLeft = $.querySelector(".left");
 // animation references
 const animButton = $.querySelector(".anim__button")
 const svgContainer = $.querySelector('.svg');
+const modalContainer = $.querySelector('.modal')
 
 // get the data from the API
 const randomQuestion = () => {
@@ -74,12 +86,12 @@ const randomQuestion = () => {
         const randomNum = Math.floor(Math.random() * 10); // will use this for deciding where to show option
         if(randomNum % 2 === 0){
             // set correct answer
-            CORRECT_ANSWER = "left";
+            CORRECT_ANSWER = "right";
             answerRight.innerHTML = `<span class="name">${questionObj.correct}</span>`;
             answerLeft.innerHTML = `<span class="name">${questionObj.incorrect}</span>`;
         } else {
             // set correct answer
-            CORRECT_ANSWER = "right";
+            CORRECT_ANSWER = "left";
             answerRight.innerHTML = `<span class="name">${questionObj.incorrect}</span>`;
             answerLeft.innerHTML = `<span class="name">${questionObj.correct}</span>`;
         }
