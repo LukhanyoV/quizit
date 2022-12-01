@@ -67,6 +67,11 @@ module.exports = (db) => {
         return await db.manyOrNone("SELECT * FROM modes");
     }
 
+    // get by mode
+    const getMode = async mode => {
+        return await db.oneOrNone("SELECT * FROM modes WHERE mode = $1", [mode]);
+    }
+
     // save game state
     // if the user and the mode exists update
     const saveState = async ({playerId, modeId, score}) => {
@@ -90,6 +95,7 @@ module.exports = (db) => {
         user,
         gameModes,
         saveState,
-        leaderboard
+        leaderboard,
+        getMode
     }
 }

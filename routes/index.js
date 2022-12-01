@@ -24,6 +24,22 @@ routes.get("/generate", (req, res) => {
     })
 });
 
+// post a mode
+routes.post("/generate", async (req, res) => {
+    const {mode} = req.body;
+    if(mode){
+        const modeData = await questionService.getMode(mode);
+        let ops;
+        if(mode === "easy") ops = ["+", "-"];
+        if(mode === "medium") ops = ["+", "-"];
+        if(mode === "hard") ops = ["+", "-", "*"];
+        const data = questionService.generateQuestion(modeData.start_num, modeData.end_num, ops);
+        res.json({
+            data
+        })
+    }
+})
+
 // get all game modes
 routes.get("/modes", async (req, res) => {
     const modes = await questionService.gameModes();

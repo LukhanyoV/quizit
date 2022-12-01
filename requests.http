@@ -5,6 +5,14 @@
 ### generate a random question
 GET http://localhost:5000/api/generate
 
+### generate on post
+POST http://localhost:5000/api/generate
+Content-Type: application/json
+
+{
+    "mode": "hard"
+}
+
 ### get the game modes
 GET http://localhost:5000/api/modes
 
@@ -36,6 +44,14 @@ GET http://localhost:5000/api/leaderboard
 ### generate a random question
 GET http://theakatsuki.xyz/api/generate
 
+### generate on post
+POST http://theakatsuki.xyz/api/generate
+Content-Type: application/json
+
+{
+    "mode": "medium"
+}
+
 ### get the game modes
 GET http://theakatsuki.xyz/api/modes
 
@@ -44,7 +60,7 @@ POST http://theakatsuki.xyz/api/user
 Content-Type: application/json
 
 {
-    "username": "yonela"
+    "username": "fanie"
 }
 
 ### save user score to the leaderboard
