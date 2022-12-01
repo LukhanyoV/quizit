@@ -43,9 +43,9 @@ function nextQuestion () {
 const animItem = bodymovin.loadAnimation({
     wrapper: svgContainer,
     animType: 'svg',
-    loop: false,
-    autoplay: false,
-    path: 'https://assets8.lottiefiles.com/packages/lf20_rovf9gzu.json'
+    loop: true,
+    autoplay: true,
+    path: 'https://assets9.lottiefiles.com/packages/lf20_wkebwzpz.json'
 })
 
 // trigger

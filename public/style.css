@@ -17,6 +17,7 @@
     --easy: #008000;
     --medium: #ffff00;
     --hard: #ff0000;
+    --success-cl: #53D05C;
 }
 .main__container{
     background-color: var(--s-bg);
@@ -319,6 +320,7 @@ h1 {
     margin: 0;
     display: flex;
     height: 100vh;
+    flex-direction: column;
     color: white;
     position: fixed;
     z-index: 8888;
@@ -343,28 +345,71 @@ button.anim__button{
     margin-top: 2em;
     border: none;
     padding: 1em;
-    color: white;
+    color: var(--t-bg);
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: .2em;
     outline: 0;
     cursor: pointer;
     z-index: 9999;
+    align-self: flex-end;
+    justify-self: flex-end;
+    place-self: end;
+    background-color: var(--t-cl);
+    transition: .1s ease;
 }
 .anim__button:hover{
-    background: #242424;
+    background: var(--f-cl);
 }
 
-.anim__button:active {
-    background-color: orange;
+a.score__link{
+    margin-top: 2em;
+    border: none;
+    padding: 1em;
+    color: var(--t-bg);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    outline: 0;
+    cursor: pointer;
+    z-index: 9999;
+    align-self: flex-end;
+    justify-self: flex-end;
+    place-self: end;
+    transition: .1s ease;
+}
+
+a.score__link:hover{
+    color: var(--f-cl);
 }
 
 .svg{
-    width: 200px;
-    /* position: absolute; */
-    /* pointer-events: none */
+    width: 400px;
+    height: 200px;
 }
 
 .hide{
-    
+  display: none;  
+}
+
+.modal__details{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.modal__title{
+    font-size: 35px;
+    color: var(--success-cl);
+    font-weight: bold;
+}
+
+.modal__center{
+    display: flex;
+}
+
+span.modal__detail{
+    color: var(--success-cl);
+    margin-left: 5px;
 }
