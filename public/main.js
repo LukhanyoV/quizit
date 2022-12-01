@@ -99,16 +99,17 @@ const animItem = bodymovin.loadAnimation({
     animType: 'svg',
     loop: true,
     autoplay: true,
-    path: 'https://assets9.lottiefiles.com/packages/lf20_wkebwzpz.json'
+    path: 'https://assets6.lottiefiles.com/packages/lf20_wkebwzpz.json'
 })
 
 // trigger
 animButton.addEventListener('click', () => {
     console.log("I was clicked!!!")
+    console.log(svgContainer)
     animItem.play()
 })
 
-animItem.addEventListener('complete', () => {
-    console.log("I am hidden!!!")
-    svgContainer.classList.add("hide")
-})
+// animItem.addEventListener('complete', () => {
+//     console.log("I am hidden!!!")
+//     svgContainer.classList.add("hide")
+// })
