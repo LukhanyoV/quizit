@@ -47,5 +47,13 @@
                 <p>Quiz</p>
         </footer>
     </main>
+    <script>
+        document.querySelectorAll(".modes").forEach(el => {
+            el.addEventListener("click", () => {
+                localStorage.setItem("gameMode", el.textContent.toLowerCase())
+                window.location.href = "game.html";
+            })
+        })
+    </script>
 </body>
 </html>

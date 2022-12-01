@@ -28,5 +28,18 @@
                 <p>Quiz</p>
         </footer>
     </main>
+    <script>
+        // save player data
+        const player = document.querySelector(".player");
+        document.querySelector(".submit").addEventListener("click", () => {
+            // check if user put in something
+            if(player.value){
+                // set player name on localstorage
+                localStorage.setItem("playerName", player.value.trim().toLowerCase());
+                // go to modes screen
+                window.location.href = "modes.html";
+            }
+        })
+    </script>
 </body>
 </html>
