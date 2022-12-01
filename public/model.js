@@ -16,14 +16,14 @@ async function init() {
 
     // Convenience function to setup a webcam
     const flip = true; // whether to flip the webcam
-    webcam = new tmPose.Webcam(400, 400, flip); // width, height, flip
+    webcam = new tmPose.Webcam(300, 200, flip); // width, height, flip
     await webcam.setup(); // request access to the webcam
     webcam.play();
     window.requestAnimationFrame(loop);
 
     // append/get elements to the DOM
     const canvas = document.getElementById('canvas');
-    canvas.width = 900; canvas.height = 600;
+    canvas.width = 300; canvas.height = 200;
     ctx = canvas.getContext('2d');
     // labelContainer = document.getElementById('label-container');
     // for (let i = 0; i < maxPredictions; i++) { // and class labels

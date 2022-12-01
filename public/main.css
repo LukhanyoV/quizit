@@ -10,6 +10,8 @@
     --easy: #008000;
     --medium: #ffff00;
     --hard: #ff0000;
+    --landing-title: #145086;
+    --l-gray: #797979;
 }
 
 
@@ -23,8 +25,9 @@
     justify-content: center;
 }
 .mode-title {
-    font-size: 30px;
-    color: var(--p-cl);
+    font-size: 50px;
+    color: var(--landing-title);
+    font-weight: bold;
 }
 
 .instruction-paragraph {
@@ -35,8 +38,7 @@
 
 .mode-selection {
     display: flex;
-    /* flex-direction: column; */
-    /* background-color: red; */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: 20px;
@@ -91,4 +93,27 @@ button.modes {
     background-color: var(--hard);
     color: var(--p-cl);
     font-weight: bold;
+}
+
+.landing__img{
+    width: 650px;
+    width: 650px;
+}
+
+.ins__container{
+    padding: 10px;
+    display: flex;
+    /* border: 1px solid var(--l-gray); */
+    background-color: var(--s-bg);
+    border-radius: 5px;
+}
+p.instructions{
+    color: var(--l-gray);
+}
+
+.landing{
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content: space-evenly;
 }
