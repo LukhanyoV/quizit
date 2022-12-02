@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <menew__answer="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quizit</title>
     <link rel="stylesheet"  href="./style.css"/>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -23,15 +23,15 @@
             <h1 class="title">X<span>QuiZ</span><span>iT</span>!</h1>
         </header>
         <div class="container">
-            <div class="answer left">
-                <span class="name">0</p>
+            <div class="answer left hide">
+                <span class="new__answer">0</p>
             </div>
-            <div class="game__container">
+            <button class="anim__button" id="startGame">Start Game</button>
+            <div class="game__container hide">
                 <p class="questions"></p>
                 <div class="game__screen">
                     <canvas id='canvas'></canvas>
                 </div>
-                <button class="anim__button" id="startGame">Start Game</button>
             </div>
             <div class="details__container">
                 <div>
@@ -39,46 +39,51 @@
                     <p class="details">Player: <span class="player" id="playername">Boizen</span></p>
                     <p class="details">Score: <span class="score" id="playerscore">250</span></p>
                     <p class="details">Question: <span class="question_num" id="questionsremaining">10</span></p>
-                    <p class="details time__container">Time: <span class="question time"></span></p>
-                </div>
-                <div class="circle">
-                    <div class="circle__container">
-                        <div class="semi__circle"></div>
-                        <div class="semi__circle"></div>
-                        <div class="semi__circle"></div>
-                        <div class="outermost__circle"></div>
-                    </div>
-                    <div class="timer__container circle__container">
-                        <div class="timer"></div>
+                    <p class="details time__container hide">Time: <span class="question time"></span></p>
+                    <div class="circle hide">
+                        <div class="circle__container">
+                            <div class="semi__circle"></div>
+                            <div class="semi__circle"></div>
+                            <div class="semi__circle"></div>
+                            <div class="outermost__circle"></div>
+                        </div>
+                        <div class="timer__container circle__container">
+                            <div class="timer"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="answer right">
-                <span class="name">0</p>
+            <div class="answer right hide">
+                <span class="new__answer">0</p>
                 </div>
         </div>
         <footer class="footer">
-            <h2 class="footer__title">MatheMatica!</h2>
+            <div>
+                <h2 class="footer__title">MatheMatica!</h2>
                 <p>Quiz</p>
+            </div>
+            <a href="./scoreBoard.html" class="score__link">Scoreboard</a>
         </footer>
     </main>
-    <div class="modal hide">
+    <div class="modal hide ">
         <div class="modal__container">
             <header class="header">
                 <h1 class="title">X<span>QuiZ</span><span>iT</span>!</h1>
             </header>
             <div class="modal__details">
                 <h1 class="modal__title">Congratulations!</h1>
-                <div class="svg" id="svg">
                 <div class="modal__center">
                     <p class="details">Mode: <span class="score modal__mode modal__detail"></span></p>
                     <p class="details">Player: <span class="player modal__player modal__detail"></span></p>
                     <p class="details">Score: <span class="score modal__score modal__detail"></span></p>
                 </div>
-
-                </div>
-                <button class="anim__button">Scoreboard</button>
-             </div>
+                <div class="svg" id="svg">
+            </div>
+            <div>
+                <button class="anim__button">Play Again</button>
+                <a href="./scoreBoard.html" class="score__link">Scoreboard</a>
+            </div>
+        </div>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.0/lottie.min.js" integrity="sha512-17otjw7eTNU9MtpB7mFfXEwB6yDjA2qjDFkKSvsywI1PRAgpyOo+cp/wPSE/1kK4fFjA9OKsZVO1tr93MGNCEw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

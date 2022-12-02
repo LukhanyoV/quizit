@@ -19,6 +19,7 @@
     --hard: #ff0000;
     --success-cl: #53D05C;
     --fail-cl: #ff6347;
+    --caution: #FFC71F;
 }
 .main__container{
     background-color: var(--s-bg);
@@ -76,6 +77,13 @@ header{
 
 }
 
+.game__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .details__container{
     position: fixed;
     right: 0;
@@ -93,7 +101,7 @@ header{
     align-items: center;
     width: 170px;
     margin: 0 10px;
-    padding: 10px;
+    padding: 2px 10px;
     color: var(--t-cl);
     justify-content: space-between;
 }
@@ -116,8 +124,8 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--s-cl);
-    border: 1px solid var(--s-cl);
+    color: var(--p-cl);
+    border: 4px solid var(--p-cl);
     padding: 10px 15px;
     width: 80px;
     height: 80px;
@@ -132,7 +140,8 @@ header{
     width: 100%;
     height: 100%;
     background-color: var(--p-bg);
-    border-radius: 0px 0px 5px 5px ;
+    border: 2px;
+    border: 4px solid var(--p-cl) ;
 }
 
 
@@ -142,8 +151,19 @@ footer{
     width: 100%;
     height: 80px;
     align-items: center;
+    justify-content: space-between;
     padding: 20px;
 }
+
+footer div{
+    flex: 1;
+    display: flex;
+    width: 100%;
+    height: 80px;
+    align-items: center;
+    padding: 20px;
+}
+
 
 .circle__container{
     width: 120px;
@@ -182,11 +202,7 @@ footer{
 }
 
 .circle{
-    /* position: fixed; */
-    /* right: 0; */
-    bottom: 0;
-    z-index: 9999;
-    margin: 0 30px;
+    padding: 15px 30px;
 }
 .outermost__circle{
     background-color: var(--t-bg);
@@ -273,6 +289,7 @@ button.submit{
     color: var(--f-cl);
     transition: .1s ease;
     border-radius: 5px;
+    border: 1px solid var(--s-cl);
 }
 
 button.submit:hover{
@@ -288,34 +305,36 @@ h1 {
 }
 
 /* <!-- centering a bootstrap table bellow --> */
-.table {
+table {
     margin: auto;
-    width: 45% !important; 
+    padding: 10px;
+    width: 100%;
+    background-color: var(--t-bg);
+    padding: 20px;
+    margin-top: 20px;
 }
-.badge-success {
-    background-color: rgba(142, 192, 124, 0.61);
+
+th, tr, td {
+    color: var(--p-cl);
+    text-align: center;
+    padding: 15px;
+    border: 1px solid var(--p-bg);
+    min-width: 200px;
 }
-.badge-warning {
-    background-color: rgba(243, 234, 149, 0.589);
+
+th{
+    color: var(--t-cl);
 }
-.badge-danger {
-    background-color: rgba(250, 109, 109, 0.562);
+
+.desc{
+    color: var(--f-cl);
 }
 .labels {
     display: flex;
     justify-content: space-around;
 }
 
-.results {
-    display: flex;
-    flex-direction: column;
-    /* background-color: #008000; */
-    width: 75%;
-    height: 90%;
-}
-
 /* Animation */
-
 .modal{
     background-color: rgba(0, 0, 0, 0.616);
     margin: 0;
@@ -335,7 +354,7 @@ h1 {
 
 .modal__container{
     position: relative;
-    height: 60%;
+    height: 80vh;
     width: 60vw;
     background-color: var(--s-bg);
     margin: 0 auto;
@@ -343,12 +362,10 @@ h1 {
 }
 
 button.anim__button{
-    margin-top: 2em;
     border: none;
-    padding: 1em;
+    padding: 12px 20px;
     color: var(--t-bg);
     font-weight: bold;
-    text-transform: uppercase;
     letter-spacing: .2em;
     outline: 0;
     cursor: pointer;
@@ -369,7 +386,6 @@ a.score__link{
     padding: 1em;
     color: var(--t-bg);
     font-weight: bold;
-    text-transform: uppercase;
     letter-spacing: .2em;
     outline: 0;
     cursor: pointer;
@@ -417,10 +433,20 @@ span.modal__detail{
 
 .success {
     border-color: var(--success-cl);
-    color: var(--success-cl);
+    color: var(--t-cl);
+    background-color: var(--success-cl);
 }
 
 .danger {
     border-color: var(--fail-cl);
-    color : var(--fail-cl);
+    color : var(--t-cl);
+    background-color: var(--fail-cl);
+}
+
+.new__answer{
+    color: var(--p-cl);
+    font-size: 50px;
+}
+.caution{
+    color: var(--caution);
 }

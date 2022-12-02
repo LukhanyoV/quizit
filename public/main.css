@@ -117,3 +117,8 @@ p.instructions{
     align-items: center;
     justify-content: space-evenly;
 }
+
+.scoreboard{
+    text-align: center;
+    min-width: 550px;
+}
