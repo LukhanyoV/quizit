@@ -25,6 +25,7 @@ var START_GAME = true;
 
 var CORRECT_ANSWER;
 
+var animPath = ''
 // update the board
 const updateBoard = () => {
     document.querySelector("#gamemode").innerHTML = GAME_MODE;
@@ -69,7 +70,13 @@ const answerQuestion = answer => {
     if(QUESTIONS_REMAINING <= 0) {
         // game over 
         modalTitle.classList.add('caution')
-        modalTitle.innerHTML = `Try Again`
+        if(PLAYER_SCORE < 20) modalTitle.innerHTML = `Try Again`;
+        if(PLAYER_SCORE < 20){
+            animPath = "https://assets10.lottiefiles.com/packages/lf20_9s5vox93.json"
+        }else {
+        //animation path
+            animPath = 'https://assets6.lottiefiles.com/packages/lf20_wkebwzpz.json'
+        }
         console.log("I AM INSIDE BOYZEN")
         modalContainer.classList.remove('hide')
         timeDisplay.classList.add('hide')
@@ -123,13 +130,7 @@ function nextQuestion () {
     randomQuestion()
     startTimer()
 }
-let animPath = ''
-if(PLAYER_SCORE < 20){
-    animPath = "https://assets10.lottiefiles.com/packages/lf20_9s5vox93.json"
-}else {
-//animation path
-    animPath = 'https://assets6.lottiefiles.com/packages/lf20_wkebwzpz.json'
-}
+
 // confetti
 const animItem = bodymovin.loadAnimation({
     wrapper: svgContainer,
