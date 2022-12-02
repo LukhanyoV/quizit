@@ -7,8 +7,7 @@
     <title>Quizit</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.2.0/axios.min.js" integrity="sha512-QIsQNDM8hG/1Z3If8Zh2BcpQ79KL3ra1wVMVSliBjQfFMlWMA3tCSe6ZfTK9rw2Ag4hOQ4P5ZhQd4nQl2dMeog==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- bootstrap bellow -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>    <!-- bootstrap bellow -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -34,52 +33,7 @@
                             <th>Score</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="">
-                                    <p class="">John Doe</p>
-                                </div>
-                            </td>
-                            <td>Easy</td>
-                            <td >
-                                <span class="">20</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="ms-3">
-                                    <p class="fw-bold mb-1">Lukhanyo Vakele</p>
-                                </div>
-                            </td>
-                            <td>Hard</td>
-                            <td>
-                                <span class="">25</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="">
-                                    <p class="">Boizen n Buck</p>
-                                </div>
-                            </td>
-                            <td>Hard</td>
-                            <td>
-                                <span class="">10</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="">
-                                    <p class="">Heizen n Berg</p>
-                                </div>
-                            </td>
-                            <td>Hard</td>
-                            <td>
-                                <span class="">9</span>
-                            </td>
-                        </tr>
-                    </tbody>
+                    <tbody id="leaderboard"></tbody>
                 </table>
         </div>
         <footer class="footer">
@@ -89,6 +43,30 @@
             </div>
             <a href="./scoreBoard.html" class="score__link">Scoreboard</a>
         </footer>
-    </main>    
+    </main>
+    <!-- get the score board -->
+    <script>
+        (async () => {
+
+            const {data: leaderboard} = await axios.get("https://theakatsuki.xyz/api/leaderboard");
+            
+            leaderboard.leaderboard.forEach(row => {
+                let item = `
+                <tr>
+                            <td>
+                                <div class="">
+                                    <p class="">${row.username}</p>
+                                </div>
+                            </td>
+                            <td>${row.mode}</td>
+                            <td >
+                                <span class="">${row.score}</span>
+                            </td>
+                        </tr>
+                `
+                document.querySelector("#leaderboard").innerHTML += item;
+            })
+        })()
+    </script>
 </body>
 </html>

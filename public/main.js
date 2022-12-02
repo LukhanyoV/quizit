@@ -66,7 +66,7 @@ const answerQuestion = answer => {
     
     updateBoard()
 
-    if(QUESTIONS_REMAINING <= 0 && PLAYER_SCORE < 20) {
+    if(QUESTIONS_REMAINING <= 0) {
         // game over 
         modalTitle.classList.add('caution')
         modalTitle.innerHTML = `Try Again`
