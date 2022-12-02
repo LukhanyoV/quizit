@@ -77,6 +77,10 @@ const answerQuestion = answer => {
         //animation path
             animPath = 'https://assets6.lottiefiles.com/packages/lf20_wkebwzpz.json'
         }
+        if(PLAYER_SCORE >= 20){
+            // game won
+            gameWon()
+        }
         console.log("I AM INSIDE BOYZEN")
         modalContainer.classList.remove('hide')
         timeDisplay.classList.add('hide')
@@ -152,3 +156,20 @@ document.querySelector("#startGame").addEventListener("click", () => {
     if(START_GAME) nextQuestion()
     START_GAME = false
 })
+
+const gameWon = () => {
+    (async () => {
+        // get the user id
+        const {data: user} = await axios.post("https://theakatsuki.xyz/api/user", {
+            "username": PLAYER_NAME
+        })
+        // hard coding
+        const modeID = 1;
+        // save to leaderbboard
+        const {save: data} = await axios.post("https://theakatsuki.xyz/api/save", {
+            "playerId": user.user.id || user.id,
+            "modeId": modeID,
+            "score": PLAYER_SCORE
+        })
+    })()
+}
