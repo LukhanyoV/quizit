@@ -26,6 +26,7 @@ var START_GAME = true;
 var CORRECT_ANSWER;
 
 var animPath = ''
+animPath = 'https://assets6.lottiefiles.com/packages/lf20_wkebwzpz.json'
 // update the board
 const updateBoard = () => {
     document.querySelector("#gamemode").innerHTML = GAME_MODE;
@@ -71,12 +72,11 @@ const answerQuestion = answer => {
         // game over 
         modalTitle.classList.add('caution')
         if(PLAYER_SCORE < 20) modalTitle.innerHTML = `Try Again`;
-        if(PLAYER_SCORE < 20){
-            animPath = "https://assets10.lottiefiles.com/packages/lf20_9s5vox93.json"
-        }else {
+        // if(PLAYER_SCORE < 20){
+        //     animPath = "https://assets10.lottiefiles.com/packages/lf20_9s5vox93.json"
+        // }else {
         //animation path
-            animPath = 'https://assets6.lottiefiles.com/packages/lf20_wkebwzpz.json'
-        }
+        // }
         if(PLAYER_SCORE >= 20){
             // game won
             gameWon()

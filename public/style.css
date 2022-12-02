@@ -319,7 +319,7 @@ th, tr, td {
     text-align: center;
     padding: 15px;
     border: 1px solid var(--p-bg);
-    min-width: 200px;
+    width: 200px;
 }
 
 th{
@@ -449,4 +449,80 @@ span.modal__detail{
 }
 .caution{
     color: var(--caution);
+}
+
+@media only screen and (max-width: 500px){
+    .container{
+        display: hidden;
+    }
+    .game__screen{
+        max-width: 250px;
+    }
+    canvas{
+        width: 200px;
+        height: 200px;
+    }
+    .circle {
+        display: none;
+        visibility: hidden;
+    }
+    .modal{
+        height: 100vh;
+        width: 100vw;
+    }
+    .modal__container{
+        height: 100vh;
+        width: 100%;
+    }
+    table{
+        min-width: 200px;
+        width: 400px;
+        max-width: 450px;
+    }
+    th, tr, td {
+        padding: 10px;
+        width: 35px;
+    }
+    .scoreboard{
+        width: 80vw;
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 400px){
+    .container{
+        display: hidden;
+    }
+    .game__screen{
+        max-width: 250px;
+    }
+    canvas{
+        width: 200px;
+        height: 200px;
+    }
+    .circle {
+        display: none;
+        visibility: hidden;
+    }
+    .modal{
+        height: 100vh;
+        width: 100vw;
+    }
+    .modal__container{
+        height: 100vh;
+        width: 100%;
+    }
+    table{
+        min-width: 200px;
+        width: 350px;
+        max-width: 400px;
+    }
+    th, tr, td {
+        padding: 10px;
+        width: 35px;
+    }
+    .scoreboard{
+        width: 100vw;
+        padding: 10px;
+    }
 }
